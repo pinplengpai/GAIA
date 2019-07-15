@@ -1,4 +1,5 @@
 .navbar-lewagon {
+  color: black;
   justify-content: space-between;
   background: white;
   background-color: transparent;
@@ -15,8 +16,13 @@
 
 .navbar-lewagon-white {
   background-color: white;
+  text-color: black;
 }
 
 .brand-name {
 
+}
+
+.nav-item {
+  color: white;
 }
