@@ -25,7 +25,10 @@ User.first(5).each do |user|
       name: "garden_test #{user.id} #{i}",
       address: "all the same address is for test #{user.id} #{i}" ,
       description: "this is for test #{user.id} #{i}",
-      size: "20 sm", price: "£800", number_of_guests: 6, user: user )
+      size: "20 sm", price: "£800",
+      number_of_guests: 6,
+      user: user
+      )
     garden_i.remote_image_url_url = "https://www.gardendesign.com/pictures/images/973x490Exact_0x58/site_3/colorful-flowers-terraced-hillside-garden-design_11850.jpg"
     garden_i.save!
     puts garden_i.name

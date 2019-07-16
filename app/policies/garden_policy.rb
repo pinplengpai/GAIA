@@ -25,6 +25,6 @@ class GardenPolicy < ApplicationPolicy
 
   def is_owner_or_admin?
     record.user == user
-    # TODO: || user.admin
+    # TODO || user.admin
   end
 end
