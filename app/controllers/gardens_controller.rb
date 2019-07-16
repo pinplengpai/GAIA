@@ -2,17 +2,19 @@ class GardensController < ApplicationController
   before_action :set_garden, only: %i[show edit update destroy]
 
   def index
-    @gardens = Garden.all
+    @gardens = policy_scope(Garden).all
   end
 
   def show() end
 
   def new
     @garden = Garden.new
+    authorize @garden
   end
 
   def create
     @garden = Garden.new(garden_params)
+    authorize @garden
     if @garden.save
       redirect_to garden_path(@garden)
     else
@@ -38,10 +40,17 @@ class GardensController < ApplicationController
   private
 
   def garden_params
+<<<<<<< HEAD
     params.require(:garden).permit(:image_url, :name, :address, :description, :size, :price, :number_of_guests, :user_id)
+=======
+    params.require(:garden).permit(:image_url,
+                                   :name, :address, :description,
+                                   :size, :price, :number_of_guests, :user_id)
+>>>>>>> master
   end
 
   def set_garden
     @garden = Garden.find(params[:id])
+    authorize @garden
   end
 end
