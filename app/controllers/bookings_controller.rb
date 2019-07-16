@@ -1,17 +1,21 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!
 
   def show() end
 
   def new
+    @garden = Garden.find(params[:garden_id])
     @booking = Booking.new
     authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.garden = Garden.find(params[:garden_id])
+    @booking.user = current_user
     if @booking.save
-      redirect_to garde_path(@garde)
+      redirect_to garden_path(@garden)
     else
       render :new
     end
@@ -30,7 +34,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:status, :start_date, :end_date, :user_id, :booking_id)
+    params.require(:booking).permit(:status, :start_date, :end_date)
   end
 
   def set_booking
