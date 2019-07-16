@@ -7,5 +7,5 @@ class Garden < ApplicationRecord
   validates :size, presence: true
   validates :price, presence: true
   validates :number_of_guests, presence: true
-  validates :user_id, uniqueness: true, presence: true
+  validates :user_id, presence: true
 end
