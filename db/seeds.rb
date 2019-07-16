@@ -18,6 +18,7 @@ for i in 1..10 do
   user_i.save!
   puts user_i.first_name
 end
+
 #gardens
 User.first(5).each do |user|
   for i in 1..4 do
