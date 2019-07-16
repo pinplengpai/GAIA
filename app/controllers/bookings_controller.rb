@@ -1,10 +1,11 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show edit update]
+  before_action :set_booking, only: %i[show edit update destroy]
 
   def show() end
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -29,10 +30,11 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:status, :start_date, :end_date, :user_id, :booking_id )
+    params.require(:booking).permit(:status, :start_date, :end_date, :user_id, :booking_id)
   end
 
   def set_booking
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 end
