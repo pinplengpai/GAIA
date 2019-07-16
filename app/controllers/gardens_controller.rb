@@ -3,7 +3,7 @@ class GardensController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @gardens = policy_scope(Garden).all
+    @gardens = policy_scope(Garden)
   end
 
   def show() end
