@@ -1,9 +1,15 @@
 class GardensController < ApplicationController
   before_action :set_garden, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
-  
+
   def index
     @gardens = policy_scope(Garden)
+    search = params[:address]
+    if search
+      @gardens = Garden.where("address LIKE '%#{@search}%'")
+    else
+      @gardens = Garden.all
+   end
   end
 
   def show() end
