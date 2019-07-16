@@ -1,7 +1,9 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
 
-  def show() end
+  def show
+    @booking = Booking.where(user: current_user)
+  end
 
   def new
     @booking = Booking.new
