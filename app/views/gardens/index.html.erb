@@ -7,7 +7,7 @@
     <% @gardens.each do |garden| %>
       <%= link_to garden do  %>
         <div class="card m-3">
-          <%= cl_image_tag garden.image_url %>
+          <%= cl_image_tag garden.picture %>
         </div>
       <% end %>
     <% end %>
