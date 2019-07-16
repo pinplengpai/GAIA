@@ -1,6 +1,6 @@
 class GardensController < ApplicationController
   before_action :set_garden, only: %i[show edit update destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @gardens = policy_scope(Garden)
@@ -41,10 +41,7 @@ class GardensController < ApplicationController
   private
 
   def garden_params
-    params.require(:garden).permit(:image_url, :name, :address, :description, :size, :price, :number_of_guests, :user_id)
-    params.require(:garden).permit(:image_url,
-                                   :name, :address, :description,
-                                   :size, :price, :number_of_guests, :user_id)
+    params.require(:garden).permit(:picture, :name, :address, :description, :size, :price, :number_of_guests, :user_id)
   end
 
   def set_garden
