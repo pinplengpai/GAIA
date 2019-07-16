@@ -1,8 +1,11 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
 
+  def index
+    @bookings = current_user.bookings
+  end
+
   def show
-    @booking = Booking.where(user: current_user)
   end
 
   def new
