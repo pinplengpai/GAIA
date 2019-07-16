@@ -7,6 +7,6 @@
 <li> <%= @garden.number_of_guests %></li>
 </ul>
 
-  <% if policy(garden).destroy? %>
+  <% if policy(@garden).destroy? %>
     <%= link_to "Delete", garden_path(@garden), method: :delete, data: { confirm: "Sure?" }%>
   <% end %>
