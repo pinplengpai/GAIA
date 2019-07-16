@@ -1,6 +1,6 @@
 class GardensController < ApplicationController
   before_action :set_garden, only: %i[show edit update destroy]
-  
+
   def index
     @gardens = policy_scope(Garden).all
   end
@@ -40,7 +40,9 @@ class GardensController < ApplicationController
   private
 
   def garden_params
-    params.require(:garden).permit(:image_url, :name, :address, :description, :size, :price, :number_of_guests, :user_id )
+    params.require(:garden).permit(:image_url,
+                                   :name, :address, :description,
+                                   :size, :price, :number_of_guests, :user_id)
   end
 
   def set_garden
