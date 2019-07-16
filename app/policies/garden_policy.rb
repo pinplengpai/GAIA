@@ -4,7 +4,7 @@ class GardenPolicy < ApplicationPolicy
       scope.all
     end
   end
-  
+
   def show?
     true
   end
@@ -24,8 +24,7 @@ class GardenPolicy < ApplicationPolicy
   private
 
   def is_owner_or_admin?
-    record.user == user 
-    # TODO || user.admin
+    record.user == user
+    # TODO: || user.admin
   end
-  
 end
