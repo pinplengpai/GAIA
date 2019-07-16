@@ -4,9 +4,13 @@
 </div>
 
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit " * 100 %>
-    </div>
+  <div class="cards">
+    <% User.all.each do |garden| %>
+    <div class="card m-3">
+      <img src="https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/homes/2016/03/09/1457493791815_HGCamberwell013.jpg?width=922&height=&mode=crop&scale=both&anchor=topcenter&quality=70" alt="">
+<!--       <h2> <%#= link_to garden.name, garden_path(garden) %></h2>
+ -->    </div>
+
+    <% end %>
   </div>
 </div>

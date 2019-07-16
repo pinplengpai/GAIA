@@ -1,9 +1,9 @@
 class GardensController < ApplicationController
   before_action :set_garden, only: %i[show edit update destroy]
-  skip_before_action :authenticate_user!
-
+  skip_before_action :authenticate_user!, only: %i[index show]
+  
   def index
-    @gardens = policy_scope(Garden).all
+    @gardens = policy_scope(Garden)
   end
 
   def show() end
@@ -15,9 +15,10 @@ class GardensController < ApplicationController
 
   def create
     @garden = Garden.new(garden_params)
+    @garden.user = current_user
     authorize @garden
     if @garden.save
-      redirect_to garde_path(@garde)
+      redirect_to garden_path(@garden)
     else
       render :new
     end
@@ -41,9 +42,7 @@ class GardensController < ApplicationController
   private
 
   def garden_params
-    params.require(:garden).permit(:image_url,
-                                   :name, :address, :description,
-                                   :size, :price, :number_of_guests, :user_id)
+    params.require(:garden).permit(:picture, :picture_cache, :name, :address, :description, :size, :price, :number_of_guests, :user_id)
   end
 
   def set_garden
