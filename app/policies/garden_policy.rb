@@ -27,5 +27,4 @@ class GardenPolicy < ApplicationPolicy
     record.user == user
     # TODO || user.admin
   end
-
 end
