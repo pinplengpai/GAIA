@@ -2,17 +2,19 @@ class GardensController < ApplicationController
   before_action :set_garden, only: %i[show edit update destroy]
   
   def index
-    @gardens = Garden.all
+    @gardens = policy_scope(Garden).all
   end
 
   def show() end
 
   def new
     @garden = Garden.new
+    authorize @garden
   end
 
   def create
     @garden = Garden.new(garden_params)
+    authorize @garden
     if @garden.save
       redirect_to garde_path(@garde)
     else
@@ -43,5 +45,6 @@ class GardensController < ApplicationController
 
   def set_garden
     @garden = Garden.find(params[:id])
+    authorize @garden
   end
 end
