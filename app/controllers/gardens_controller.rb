@@ -40,13 +40,10 @@ class GardensController < ApplicationController
   private
 
   def garden_params
-<<<<<<< HEAD
     params.require(:garden).permit(:image_url, :name, :address, :description, :size, :price, :number_of_guests, :user_id)
-=======
     params.require(:garden).permit(:image_url,
                                    :name, :address, :description,
                                    :size, :price, :number_of_guests, :user_id)
->>>>>>> master
   end
 
   def set_garden

@@ -1,0 +1,23 @@
+<div id="container">
+  <div class="row">
+    <div class="text-left form-login">
+      <h2 class="text-center"><strong>To list my garden for rent</strong></h2>
+      <br>
+      <%= simple_form_for @garden do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :name, placeholder: "Rosedal"%>
+      <%= f.input :address, label: "My lovely garden is located at this address", placeholder: "ISABEL, INFANTA AV. 900" %>
+      <%= f.input :size, label: "size of my garden", placeholder: "10,000 square feet" %>
+      <%= f.input :number_of_guests, label: "capacity of my garden", placeholder: "100 people" %>
+      <%= f.input :description, label: "A welcoming description for your garden", placeholder: "Located within the Palermo neighbourhood's Parque Tres de Febrero - one of the most popular parks in the city, is this collection of more than 18,000 roses surrounded by a lake and acres of parkland." %>
+      <%= f.input :price, label: "Price per day in pesos", placeholder: "8000" %>
+      <br>
+      <%= f.input :image_url, as: :attachinary, label: "Choose a nice picture of my garden" %>
+      <%= f.button :submit, "List my garden!", class: "btn btn-success btn-lg"%>
+
+      <% end %>
+    </div>
+  </div>
+
+</div>
+</div>
