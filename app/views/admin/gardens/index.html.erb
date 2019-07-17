@@ -1,7 +1,6 @@
 
 <% @gardens.each do |garden| %>
   <div class="notification">
-    <img src="<%= garden.user.picture %>" class="avatar-large" />
     <div class="notification-content">
       <p><small><%= garden.created_at %></small></p>
       <%= link_to garden.name, garden_path(garden)%>
@@ -14,4 +13,3 @@
 <% end %>
 
 <#%= render "/gardens/gardens", gardens: @gardens %>
-
