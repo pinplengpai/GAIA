@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :gardens
   mount_uploader :picture, PhotoUploader
 
   # Include default devise modules. Others available are:

@@ -1,1 +1,17 @@
-<%= render "/gardens/gardens", gardens: @gardens %>
+
+<% @gardens.each do |garden| %>
+  <div class="notification">
+    <img src="<%= garden.user.picture %>" class="avatar-large" />
+    <div class="notification-content">
+      <p><small><%= garden.created_at %></small></p>
+      <%= link_to garden.name, garden_path(garden)%>
+    </div>
+    <div class="notification-actions">
+      <i class="fas fa-pencil-alt"><%= link_to "Edit", edit_garden_path(garden[:id]) %></i>
+      <i class="far fa-trash-alt"><%= link_to "Delete", garden_path(garden), method: :delete, data: { confirm: "Sure?" } %></i>
+    </div>
+  </div>
+<% end %>
+
+<#%= render "/gardens/gardens", gardens: @gardens %>
+
