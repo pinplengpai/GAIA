@@ -6,7 +6,7 @@ class GardensController < ApplicationController
     @gardens = policy_scope(Garden)
     search = params[:search]
     if search
-      @gardens = Garden.where("address ILIKE ?", search)
+      @gardens = Garden.where("address ILIKE ?", "%#{search}%")
     else
       @gardens = Garden.all
    end
