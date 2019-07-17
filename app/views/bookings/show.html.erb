@@ -1,4 +1,26 @@
-<div class = container, style = "margin-top: 10em">
-<h1> Congrats</h1>
-<p> The booking is booked!</p>
+<div class = "container">
+  <div class="row">
+    <div class="col-md-6">
+              <div class="text-left">
+                <table>
+                 <tbody>
+                   <tr>
+                     <td><h2>Congrats</h2></td>
+                   </tr>
+                   <tr>
+                     <td><h3>The booking has been created!</h3></td>
+                   </tr>
+                    <tr>
+                      <td> <h4><i class="fas fa-heart"></i> </h4></td>
+                      <td><h4> &nbsp; Your host is <strong> <%= @booking.garden.user.first_name %> </strong></h4></td>
+                    </tr>
+                    <tr>
+                      <td><h4> <i class="fas fa-tree"></i></h4></td>
+                      <td><h4> &nbsp; You asked to rent a garden from :<%= @booking.start_date %> to <%= @booking.end_date %> </h4></td>
+                    </tr>
+                  </tbody>
+                </table>
+    </div>
+   </div>
+  </div>
 </div>

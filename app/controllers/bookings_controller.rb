@@ -7,6 +7,8 @@ class BookingsController < ApplicationController
   end
 
   def show
+    set_booking
+    @garden = @booking.garden
   end
 
   # def new
