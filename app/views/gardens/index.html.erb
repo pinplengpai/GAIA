@@ -1,4 +1,3 @@
-<%= render "shared/navbar" %>
 <div class="home-banner">
   <h1>GAIA</h1>
 </div>
@@ -8,7 +7,10 @@
     <% @gardens.each do |garden| %>
       <%= link_to garden do  %>
         <div class="card m-3">
-          <%= cl_image_tag garden.picture %>
+          <%= cl_image_tag garden.picture %> <br>
+          <h2><%= garden.name %></h2> <br>
+          <p><%= garden.address %></p> <br>
+          <p><%= garden.price %></p> <br>
         </div>
       <% end %>
     <% end %>

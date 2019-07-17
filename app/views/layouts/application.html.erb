@@ -11,7 +11,10 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= yield %>
+    <%= render "shared/navbar" %>
+    <div class = "<%= 'yield-margin' unless controller.controller_name == 'gardens' && controller.action_name == 'index' %>">
+      <%= yield %>
+    </div>
     <%= render "shared/footer" %>
     <%= javascript_include_tag 'application', 'data-turbolink-track': 'reload' %>
     <%= javascript_pack_tag 'application' %>
