@@ -1,21 +1,35 @@
-<div class="container" style="margin-top: 5em;">
-
-<%=simple_form_for [@garden, @booking] do |f| %>
+<div class="container">
+<div class= row>
+  <div class="booking-form col-md-3">
+  <%=simple_form_for [@garden, @booking] do |f| %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
   <%= f.submit 'Create booking' %>
 <% end %>
+  </div>
 
-<ul>
-<li> <%= @garden.name %></li>
-<li> <%= @garden.address %></li>
-<li> <%= @garden.description %></li>
-<li> <%= @garden.size %></li>
-<li> <%= @garden.price %></li>
-<li> <%= @garden.number_of_guests %></li>
-</ul>
+<div>
+<p>
+Title: <%= @garden.name %> <br>
+Location: <%= @garden.address %> <br>
+Details: <%= @garden.description %> <br>
+Size: <%= @garden.size %> <br>
+Price: $<%= @garden.price %> <br>
+Capacity: <%= @garden.number_of_guests %> people <br>
+</p>
 
   <% if policy(@garden).destroy? %>
     <%= link_to "Delete", garden_path(@garden), method: :delete, data: { confirm: "Sure?" }%>
   <% end %>
+
+
+  <% if policy(@garden).edit? %>
+    <%= link_to "Edit", edit_garden_path(params[:id])%>
+  <% end %>
+  </div>
+
+<%= cl_image_tag @garden.picture, class: "show-image" %>
+
+
+</div>
 </div>
