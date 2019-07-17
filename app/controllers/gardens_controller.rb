@@ -4,9 +4,9 @@ class GardensController < ApplicationController
 
   def index
     @gardens = policy_scope(Garden)
-    search = params[:address]
+    search = params[:search]
     if search
-      @gardens = Garden.where("address LIKE '%#{@search}%'")
+      @gardens = Garden.where("address ILIKE ?", search)
     else
       @gardens = Garden.all
    end
