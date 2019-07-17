@@ -12,7 +12,9 @@
   </head>
   <body>
     <%= render "shared/navbar" %>
-    <%= yield %>
+    <div class = "<%= 'yield-margin' unless controller.controller_name == 'gardens' && controller.action_name == 'index' %>">
+      <%= yield %>
+    </div>
     <%= render "shared/footer" %>
     <%= javascript_include_tag 'application', 'data-turbolink-track': 'reload' %>
     <%= javascript_pack_tag 'application' %>
