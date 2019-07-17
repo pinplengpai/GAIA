@@ -7,10 +7,12 @@
     <% @gardens.each do |garden| %>
       <%= link_to garden do  %>
         <div class="card m-3">
-          <%= cl_image_tag garden.picture %> <br>
-          <h2><%= garden.name %></h2> <br>
-          <p><%= garden.address %></p> <br>
-          <p><%= garden.price %></p> <br>
+          <%= cl_image_tag garden.picture %><br>
+
+            <h2><%= garden.name %></h2> <br>
+            <p><%= garden.address %></p> <br>
+            <p class="price">$<%= garden.price %>/day</p> <br>
+
         </div>
       <% end %>
     <% end %>
