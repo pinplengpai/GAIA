@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.garden = Garden.find(params[:garden_id])
     @booking.user = current_user
     if @booking.save
-      redirect_to garden_path(@garden)
+      redirect_to @booking
     else
       render :new
     end
