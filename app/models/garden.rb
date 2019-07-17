@@ -1,6 +1,7 @@
 class Garden < ApplicationRecord
   mount_uploader :picture, PhotoUploader
   belongs_to :user
+  has_many :bookings
   validates :picture, presence: true
   validates :name, uniqueness: true, presence: true
   validates :address, uniqueness: true, presence: true

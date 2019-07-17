@@ -1,14 +1,21 @@
 <div class="notification-wrapper">
+<p>My Gardens:</p>
 <% @gardens.each do |garden| %>
   <div class="notification">
     <div class="notification-content">
       <p><small><%= garden.created_at %></small></p>
       <%= link_to garden.name, garden_path(garden)%>
+        <% puts 'booked from:';  garden.bookings.each do |booking| %>
+           booked from:  <%= booking.start_date.strftime("%A, %b %d") %>
+           to <%= booking.end_date.strftime("%A, %b %d") %>
+        <% end %>
     </div>
     <div class="notification-actions">
       <i class="fas fa-pencil-alt"><%= link_to "Edit", edit_garden_path(garden[:id]) %></i>
-      <i class="far fa-trash-alt"><%= link_to "Delete", garden_path(garden), method: :delete, data: { confirm: "Sure?" } %></i>
+      <i class="far fa-trash-alt"><%= link_to "Delete", garden_path(garden),
+         method: :delete, data: { confirm: "Sure?" } %></i>
     </div>
   </div>
 <% end %>
+<p>Gardens I booked:</p>
 </div>
