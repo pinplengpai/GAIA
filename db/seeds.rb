@@ -30,7 +30,7 @@ User.first(5).each do |user|
       number_of_guests: 6,
       user: user
       )
-    garden_i.remote_picture_url = "https://www.gardendesign.com/pictures/images/973x490Exact_0x58/site_3/colorful-flowers-terraced-hillside-garden-design_11850.jpg"
+    garden_i.remote_picture_url = "https://greenweddingshoes.com/wp-content/uploads/2018/05/brittanyjesse-wedding-23.jpg"
     garden_i.save!
     puts garden_i.name
   end

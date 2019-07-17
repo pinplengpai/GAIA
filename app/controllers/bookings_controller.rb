@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
-  skip_before_action :authenticate_user!
+  # skip_before_action :authenticate_user!
 
   def index
     @bookings = current_user.bookings
@@ -9,20 +9,22 @@ class BookingsController < ApplicationController
   def show
   end
 
-  def new
-    @garden = Garden.find(params[:garden_id])
-    @booking = Booking.new
-    authorize @booking
-  end
+  # def new
+  #   @garden = Garden.find(params[:garden_id])
+  #   @booking = Booking.new
+  #   authorize @booking
+  # end
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.garden = Garden.find(params[:garden_id])
+    @garden = Garden.find(params[:garden_id])
+    authorize @booking
+    @booking.garden = @garden
     @booking.user = current_user
     if @booking.save
       redirect_to @booking
     else
-      render :new
+      render "gardens/show"
     end
   end
 
