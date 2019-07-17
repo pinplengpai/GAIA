@@ -35,3 +35,13 @@
 .nav-item {
   color: white;
 }
+
+.navbar-lewagon-white-standard {
+  background-color: white;
+  .brand-name {
+    color: black;
+  }
+  .nav-link {
+  color: black !important;
+}
+}

@@ -1,5 +1,5 @@
 import "bootstrap";
 import { initUpdateNavbarOnScroll } from '../components/navbar';
-// initUpdateNavbarOnScroll();
+initUpdateNavbarOnScroll();
 import { loadDynamicBannerText } from '../components/banner';
 loadDynamicBannerText();
