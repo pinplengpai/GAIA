@@ -11,16 +11,11 @@ class Garden < ApplicationRecord
   validates :number_of_guests, presence: true
   validates :user_id, presence: true
 
-
   def amount_of_bookings
     bookings.count
   end
 
   def amount_of_days
     bookings.reduce(0) { |days, booking| days += (booking.end_date - booking.start_date).to_i }
-
-  def unavailable_dates
-    bookings.pluck(:start_date, :end_date).map do |range|
-      { from: range[0], to: range[1] }
   end
 end
