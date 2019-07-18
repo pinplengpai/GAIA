@@ -14,7 +14,7 @@
        <%= link_to "Delete", garden_path(@garden), method: :delete, data: { confirm: "Sure?" }%>
        <% end %>
        <% if policy(@garden).edit? %>
-       <%= link_to "Edit", edit_garden_path(params[:id])%>
+       <%= link_to "Edit", @garden%>
        <% end %>
      </div>
    </div>
