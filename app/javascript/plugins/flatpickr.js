@@ -1,7 +1,8 @@
 import flatpickr from "flatpickr"
 import "flatpickr/dist/flatpickr.min.css" // Note this is important!
 
-const unvailableDates = JSON.parse(document.getElementById('unavailable-dates').dataset.unavailable)
+const data = document.getElementById('unavailable-dates').dataset.unavailable
+const unvailableDates = JSON.parse(data)
 flatpickr(".datepicker", {
   altInput: true,
   dateFormat: "Y-m-d",
