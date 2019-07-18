@@ -10,12 +10,12 @@
           <p>Start date: <%=@booking.start_date%></p>
           <p>End date: <%=@booking.end_date%></p>
             <p><% if @booking.status == 'accepted'%>
-            Your booking has been <%=@booking.status%></p>
-            <p><% elsif @booking.status == 'declined'%>
-            Your booking has been <%=@booking.status%></p>
-            <p><% elsif @booking.status == 'pending'%>
-               Your booking is <%=@booking.status%></p>
-            <%end%>
+            Your booking has been <%=@booking.status%>
+            <% elsif @booking.status == 'declined'%>
+            Your booking has been <%=@booking.status%>
+            <% elsif @booking.status == 'pending'%>
+               Your booking is <%=@booking.status%>
+            <%end%></p>
     <% if policy(@booking).edit? %>
       <%= link_to "Update", edit_booking_path(@booking), class: "update-button btn btn-success btn-lg" %>
     <% end %>
