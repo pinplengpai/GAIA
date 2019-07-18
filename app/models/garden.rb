@@ -18,4 +18,10 @@ class Garden < ApplicationRecord
   def amount_of_days
     bookings.reduce(0) { |days, booking| days += (booking.end_date - booking.start_date).to_i }
   end
+
+  def unavailable_dates
+    bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
 end
