@@ -1,0 +1,17 @@
+  <div class="notification">
+    <%= cl_image_tag(garden.picture, class:"img-garden") %>
+    <div class="notification-content">
+      <h3 class="garden-card-title"><%= garden.name.upcase %></h3>
+      <p><small>Garden added on the <%= garden.created_at.strftime("%b %d") %></small></p>
+      <p><strong><%= garden.amount_of_bookings %></strong> bookings | <strong><%= garden.amount_of_days %></strong> total days</p>
+    </div>
+
+    <div class="notification-actions d-flex">
+      <%= link_to edit_garden_path(garden[:id]), class:"btn btn-success" do %>
+        <i class="fas fa-pencil-alt"></i> Edit
+      <% end %>
+      <%= link_to garden_path(garden), method: :delete, data: { confirm: "Sure?" }, class:"btn btn-danger" do %>
+        <i class="far fa-trash-alt"></i> Delete
+      <% end %>
+    </div>
+  </div>

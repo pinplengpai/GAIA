@@ -1,77 +1,29 @@
-<div class="notification-wrapper">
-  <div class="split left ">
-    <p id="title">My client bookings:</p>
-    <% @gardens.each do |garden| %>
-      <div class="notification">
-        <div class="">
-          <%= cl_image_tag(garden.picture, class:"card_picture")%>
-        </div>
-        <div class="notification-content">
-          <ul>
-            <li><%= link_to garden.name, garden_path(garden)%></li>
-            <%garden.bookings.each do |booking| %>
-              <li>created on:
-                <%= garden.created_at.strftime("%A, %b %d")%></li>
-              <li>booked from:
-                <%= booking.start_date.strftime("%A, %b %d") %>
-                to
-                <%= booking.end_date.strftime("%A, %b %d") %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-        <div class="notification-actions">
-          <i class="fas fa-pencil-alt"><%= link_to "Edit", edit_garden_path(garden[:id]) %></i>
-          <i class="far fa-trash-alt"><%= link_to "Delete", garden_path(garden), method: :delete, data: { confirm: "Sure?" } %></i>
-        </div>
+<div class="container-fluid admin-bookings" style="height: 80vh;">
+  <div class="row mt-5">
+    <div class="col-6">
+      <h2 class="text-center mb-3">My client bookings:</h2>
+      <div>
+        <% @gardens.each do |garden| %>
+          <%= render "admin/gardens/card", garden: garden %>
+        <% end %>
       </div>
-    <% end %>
-  </div>
-
-  <%# split view here %>
-
-    <div class="split right">
-      <p id="title">Bookings made by me:</p>
-      <% @gardens.each do |garden| %>
-        <div class="notification">
-          <div class="">
-            <%= cl_image_tag(garden.picture, class:"card_picture")%>
-          </div>
-          <div class="notification-content">
-            <ul>
-              <li><%= link_to garden.name, garden_path(garden)%></li>
-              <%garden.bookings.each do |booking| %>
-                <li>created on:
-                  <%= garden.created_at.strftime("%A, %b %d")%></li>
-                <li>booked from:
-                  <%= booking.start_date.strftime("%A, %b %d") %>
-                  to
-                  <%= booking.end_date.strftime("%A, %b %d") %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-          <div class="notification-actions">
-            <i class="fas fa-pencil-alt"><%= link_to "Edit", edit_garden_path(garden[:id]) %></i>
-            <i class="far fa-trash-alt"><%= link_to "Delete", garden_path(garden), method: :delete, data: { confirm: "Sure?" } %></i>
-          </div>
-        </div>
-      <% end %>
+    </div>
+    <div class="col-6">
+      <h2 class="text-center mb-3">My bookings:</h2>
+      <div>
+        <% @gardens.each do |garden| %>
+            <%= render "admin/gardens/card", garden: garden %>
+        <% end %>
+      </div>
     </div>
   </div>
-  <p id="title">My Gardens:</p>
-    <div class="cards">
-      <% @gardens.each do |garden| %>
-        <%= link_to garden do %>
-        <div class="card m-3">
-          <%= cl_image_tag garden.picture %><br>
-          <h2><%= garden.name %></h2>
-          <br>
-          <p><%= garden.address %></p>
-          <br>
-          <p class="price">$<%= garden.price %>/day</p>
-          <br>
+  <div class="row mt-5">
+    <div class="col-6">
+      <h2 class="text-center mb-3">My Gardens:</h2>
+      <div>
+        <% @gardens.each do |garden| %>
+          <%= render "admin/gardens/card", garden: garden %>
+        <% end %>
       </div>
-    <% end %>
-  <% end %>
+    </div>
 </div>
