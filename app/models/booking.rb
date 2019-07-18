@@ -8,7 +8,9 @@ class Booking < ApplicationRecord
   validates :garden_id, presence: true
   validates :status, inclusion: { in: STATUS }
 
-  def end_date_after_start_date?
-    errors.add :end_date, "must be after start date" if end_date < start_date
+  def end_date_after_start_date
+    return if end_date.blank? || start_date.blank?
+
+    errors.add(:end_date, "must be after the start date") if end_date < start_date
   end
 end
