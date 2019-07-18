@@ -9,11 +9,11 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
-  def show
+  def show?
     user_or_landlord?
   end
 
-  def update
+  def update?
     user_or_landlord?
   end
 

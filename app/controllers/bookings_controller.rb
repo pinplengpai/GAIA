@@ -33,6 +33,7 @@ class BookingsController < ApplicationController
   def edit() end
 
   def update
+    # record.garden.user == user
     if @booking.update(booking_params)
       redirect_to booking_path(@booking)
     else

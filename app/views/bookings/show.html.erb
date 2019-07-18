@@ -1,26 +1,22 @@
-<div class = "container">
-  <div class="row">
-    <div class="col-md-6">
-              <div class="text-left">
-                <table>
-                 <tbody>
-                   <tr>
-                     <td><h2>Congrats</h2></td>
-                   </tr>
-                   <tr>
-                     <td><h3>The booking has been created!</h3></td>
-                   </tr>
-                    <tr>
-                      <td> <h4><i class="fas fa-heart"></i> </h4></td>
-                      <td><h4> &nbsp; Your host is <strong> <%= @booking.garden.user.first_name %> </strong></h4></td>
-                    </tr>
-                    <tr>
-                      <td><h4> <i class="fas fa-tree"></i></h4></td>
-                      <td><h4> &nbsp; You asked to rent a garden from :<%= @booking.start_date %> to <%= @booking.end_date %> </h4></td>
-                    </tr>
-                  </tbody>
-                </table>
-    </div>
-   </div>
+
+<div class="booking-confirmation-container">
+  <div class="congrats-card my-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @garden.picture, crop: :fill %>')">
+       <h3>Congratulations!</h3>
   </div>
+    <div class="booking-details-card">
+          <h5>Your booking request has been sent to <%=@booking.garden.user.first_name%>!</h5>
+          <h6><strong>Your reservation details</strong></h6>
+          <h7>Garden name: <%=@booking.garden.name%></h7>
+          <p>Start date: <%=@booking.start_date%></p>
+          <p>End date: <%=@booking.end_date%></p>
+            <p><% if @booking.status == 'accepted'%>
+            Your booking has been <%=@booking.status%>
+            <% elsif @booking.status == 'declined'%>
+            Your booking has been <%=@booking.status%>
+            <% elsif @booking.status == 'pending'%>
+               Your booking is <%=@booking.status%>
+            <%end%></p>
+    <% if policy(@booking).edit? %>
+      <%= link_to "Update", edit_booking_path(@booking), class: "update-button btn btn-success btn-lg" %>
+    <% end %>
 </div>

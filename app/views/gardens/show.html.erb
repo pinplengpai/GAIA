@@ -2,8 +2,8 @@
 <div class= row>
   <div class="booking-form col-md-3">
   <%=simple_form_for [@garden, @booking] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
+  <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"}  %>
+  <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker"}  %>
   <%= f.submit 'Create booking' %>
 <% end %>
   </div>
