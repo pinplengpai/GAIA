@@ -1,9 +1,12 @@
 .booking-confirmation-container {
   display: flex;
+  justify-content: center;
 }
 
 .congrats-card {
-    width: 600px;
+    background-size: cover;
+    width: 400px;
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,9 +23,13 @@
 }
 
 .booking-details-card{
-  width: 300px;
+  width: 400px;
+  height:400px;
   border: 1px lightgrey solid;
-  padding: 10px;
-  margin: 20px;
+  padding: 20px;
   background-color: white;
+  margin-left: 10px;
+  h6{
+    text-decoration: underline;
+  }
 }

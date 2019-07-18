@@ -1,15 +1,22 @@
 
 <div class="booking-confirmation-container">
-  <div class="congrats-card mx-5 my-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <div class="congrats-card my-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @garden.picture, crop: :fill %>')">
        <h3>Congratulations!</h3>
-</div>
-
-
+  </div>
     <div class="booking-details-card">
-          <h5>Your booking details</h5>
-          <p>Your booking request has been sent to <%=@booking.garden.user.first_name%></p>
-    </div>
+          <h5>Your booking request has been sent to <%=@booking.garden.user.first_name%>!</h5>
+          <h6><strong>Your reservation details</strong></h6>
+          <h7>Garden name: <%=@booking.garden.name%></h7>
+          <p>Start date: <%=@booking.start_date%></p>
+          <p>End date: <%=@booking.end_date%></p>
+            <p><% if @booking.status == 'accepted'%>
+            Your booking has been <%=@booking.status%></p>
+            <p><% elsif @booking.status == 'declined'%>
+            Your booking has been <%=@booking.status%></p>
+            <p><% elsif @booking.status == 'pending'%>
+               Your booking is <%=@booking.status%></p>
+            <%end%>
     <% if policy(@booking).edit? %>
-      <%= link_to "Update", edit_booking_path(@booking), class: "btn btn-outline-primary" %>
+      <%= link_to "Update", edit_booking_path(@booking), class: "update-button btn btn-success btn-lg" %>
     <% end %>
 </div>
