@@ -3,13 +3,15 @@
     <p id="title">My client bookings:</p>
     <% @gardens.each do |garden| %>
       <div class="notification">
-
+        <div class="">
           <%= cl_image_tag(garden.picture, class:"card_picture")%>
-          <div class="notification-content">
+        </div>
+        <div class="notification-content">
           <ul>
             <li><%= link_to garden.name, garden_path(garden)%></li>
-              <%garden.bookings.each do |booking| %>
-              <li>created on:  <%= garden.created_at.strftime("%A, %b %d")%></li>
+            <%garden.bookings.each do |booking| %>
+              <li>created on:
+                <%= garden.created_at.strftime("%A, %b %d")%></li>
               <li>booked from:
                 <%= booking.start_date.strftime("%A, %b %d") %>
                 to
@@ -32,14 +34,15 @@
       <p id="title">Bookings made by me:</p>
       <% @gardens.each do |garden| %>
         <div class="notification">
-            <div class="">
-              <%= cl_image_tag(garden.picture, class:"card_picture")%>
-            </div>
-            <div class="notification-content">
+          <div class="">
+            <%= cl_image_tag(garden.picture, class:"card_picture")%>
+          </div>
+          <div class="notification-content">
             <ul>
               <li><%= link_to garden.name, garden_path(garden)%></li>
-                <%garden.bookings.each do |booking| %>
-                <li>created on:  <%= garden.created_at.strftime("%A, %b %d")%></li>
+              <%garden.bookings.each do |booking| %>
+                <li>created on:
+                  <%= garden.created_at.strftime("%A, %b %d")%></li>
                 <li>booked from:
                   <%= booking.start_date.strftime("%A, %b %d") %>
                   to
@@ -56,18 +59,19 @@
       <% end %>
     </div>
   </div>
-  <div class="container">
+  <p id="title">My Gardens:</p>
     <div class="cards">
       <% @gardens.each do |garden| %>
-        <%= link_to garden do  %>
-          <div class="card m-3">
-            <%= cl_image_tag garden.picture %><br>
-              <h2><%= garden.name %></h2> <br>
-              <p><%= garden.address %></p> <br>
-              <p class="price">$<%= garden.price %>/day</p> <br>
+        <%= link_to garden do %>
+        <div class="card m-3">
+          <%= cl_image_tag garden.picture %><br>
+          <h2><%= garden.name %></h2>
+          <br>
+          <p><%= garden.address %></p>
+          <br>
+          <p class="price">$<%= garden.price %>/day</p>
+          <br>
+      </div>
+    <% end %>
+  <% end %>
 </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-       <%# <div class="card_picture" style="background-image: url('<%= cl_image_path(garden.picture) %>')"> %>

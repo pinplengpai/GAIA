@@ -1,6 +1,6 @@
 .notification {
-  // display: flex;
-  // align-items: center;
+  display: flex;
+  align-items: center;
   // margin-bottom: 8px;
   // background: white;
   // border: 1px solid rgb(235,235,235);
@@ -9,7 +9,7 @@
 }
 
 .notification .notification-content {
-  // flex-grow: 1;
+  flex-grow: 1;
   padding: 0;
 }
 
@@ -76,7 +76,7 @@
 }
 .notification-content {
   display: flex;
-  align-items: flex-end;
+  // align-items: flex-end;
 }
 li {
   list-style:none !important;
