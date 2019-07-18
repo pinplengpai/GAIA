@@ -1,17 +1,40 @@
 import flatpickr from "flatpickr"
 import "flatpickr/dist/flatpickr.min.css" // Note this is important!
 
+const unvailableDates = JSON.parse(document.getElementById('unavailable-dates').dataset.unavailable)
 flatpickr(".datepicker", {
   altInput: true,
   dateFormat: "Y-m-d",
-  disable: [
-      {
-          from: "2025-04-01",
-          to: "2025-05-01"
-      },
-      {
-          from: "2025-09-01",
-          to: "2025-12-01"
-      }
-  ]
+  disable: unvailableDates
 })
+
+// const toggleDateInputs = function() {
+//   const startDateInput = document.getElementById('booking_start_date');
+//   const endDateInput = document.getElementById('booking_end_date');
+
+//   if (startDateInput && endDateInput) {
+
+//     flatpickr(startDateInput, {
+//     minDate: 'today',
+//     dateFormat: 'd-m-Y',
+//     disable: unvailableDates,
+//     onChange: function(selectedDates, selectedDate) {
+//       if (selectedDate === '') {
+//         endDateInput.disabled = true;
+//       }
+//       let minDate = selectedDates[0];
+//       minDate.setDate(minDate.getDate() + 1);
+//       endDateCalendar.set('minDate', minDate);
+//       endDateInput.disabled = false;
+//     }
+//   });
+//     const endDateCalendar =
+//       flatpickr(endDateInput, {
+//         dateFormat: 'd-m-Y',
+//         disable: unvailableDates,
+//         },
+//       });
+//   }
+// };
+
+// export { toggleDateInputs }
