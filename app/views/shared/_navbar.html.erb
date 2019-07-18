@@ -34,7 +34,11 @@
         </li>
       <% else %>
         <li class="nav-item dropdown">
-        <%= cl_image_tag(current_user.picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+        <% if current_user.picture.present? %>
+            <%= cl_image_tag(current_user.picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+        <% else %>
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="http://rotarymeansbusiness.com/wp-content/uploads/avatar-female.png">
+        <% end %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "Add your garden", new_garden_path, class: "dropdown-item" %>
           <%= link_to "Check my gardens & bookings", admin_gardens_path, class: "dropdown-item" %>

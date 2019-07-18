@@ -1,11 +1,15 @@
+
 <div class="booking-confirmation-container">
   <div class="congrats-card mx-5 my-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
        <h3>Congratulations!</h3>
-  </div>
+</div>
 
 
     <div class="booking-details-card">
           <h5>Your booking details</h5>
           <p>Your booking request has been sent to <%=@booking.garden.user.first_name%></p>
     </div>
+    <% if policy(@booking).edit? %>
+      <%= link_to "Update", edit_booking_path(@booking), class: "btn btn-outline-primary" %>
+    <% end %>
 </div>
