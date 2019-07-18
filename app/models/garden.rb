@@ -11,6 +11,10 @@ class Garden < ApplicationRecord
   validates :number_of_guests, presence: true
   validates :user_id, presence: true
 
+  def end_date_after_start_date?
+    errors.add :end_date, "must be after start date" if booking.end_date < booking.start_date
+  end
+
   def amount_of_bookings
     bookings.count
   end
