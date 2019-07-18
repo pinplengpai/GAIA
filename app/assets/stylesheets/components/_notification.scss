@@ -1,15 +1,16 @@
 .notification {
-  display: flex;
-  align-items: center;
+  // display: flex;
+  // align-items: center;
+  // margin-bottom: 8px;
+  // background: white;
+  // border: 1px solid rgb(235,235,235);
   margin-bottom: 8px;
   background: white;
-  padding: 8px 16px;
-  border: 1px solid rgb(235,235,235);
 }
 
 .notification .notification-content {
-  flex-grow: 1;
-  padding: 0 24px;
+  // flex-grow: 1;
+  padding: 0;
 }
 
 .notification p {
@@ -66,4 +67,17 @@
 }
 #title{
   text-align: center;
+}
+
+.card_picture{
+  width: auto;
+  height: 100px;
+  background-size: cover;
+}
+.notification-content {
+  display: flex;
+  align-items: flex-end;
+}
+li {
+  list-style:none !important;
 }
