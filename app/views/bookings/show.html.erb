@@ -1,25 +1,28 @@
 <div class = "container">
   <div class="row">
     <div class="col-md-6">
-              <div class="text-left">
-                <table>
-                 <tbody>
-                   <tr>
-                     <td><h2>Congrats</h2></td>
-                   </tr>
-                   <tr>
-                     <td><h3>The booking has been created!</h3></td>
-                   </tr>
-                    <tr>
-                      <td> <h4><i class="fas fa-heart"></i> </h4></td>
-                      <td><h4> &nbsp; Your host is <strong> <%= @booking.garden.user.first_name %> </strong></h4></td>
-                    </tr>
-                    <tr>
-                      <td><h4> <i class="fas fa-tree"></i></h4></td>
-                      <td><h4> &nbsp; You asked to rent a garden from :<%= @booking.start_date %> to <%= @booking.end_date %> </h4></td>
-                    </tr>
-                  </tbody>
-                </table>
+      <div class="text-left">
+        <table>
+          <tbody>
+            <tr>
+              <td><h3>This are the booking details</h3></td>
+            </tr>
+            <tr>
+              <td> <h4><i class="fas fa-heart"></i> </h4></td>
+              <td><h4> &nbsp; Your host is <strong> <%= @booking.garden.user.first_name %> </strong></h4></td>
+            </tr>
+            <tr>
+              <td><h4> <i class="fas fa-tree"></i></h4></td>
+              <td><h4> &nbsp; You asked to rent a garden from :<%= @booking.start_date %> to <%= @booking.end_date %> </h4></td>
+            </tr>
+            <tr>
+              <td><h4> &nbsp; The status of your booking is <strong> <%= @booking.status %> </strong></h4></td>
+            </tr>
+          </tbody>
+        </table>
+          <% if policy(@booking).edit? %>
+            <%= link_to "Update", edit_booking_path(@booking), class: "btn btn-outline-primary" %>
+          <% end %>
     </div>
    </div>
   </div>
