@@ -1,7 +1,7 @@
 <div class="container show">
   <div class="column-wrap">
     <%= cl_image_tag @garden.picture, class: "show-image" %>
-    <div class="booking-form-wrap">
+    <div class="booking-form-wrap" id="wrap">
       <div class="booking-form" id="unavailable-dates" data-unavailable="<%= @garden.unavailable_dates.to_json %>">
         <%=simple_form_for [@garden, @booking] do |f| %>
         <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"}  %>
