@@ -1,18 +1,18 @@
-<div class="container-fluid admin-bookings" style="height: 80vh;">
+<div class="container-fluid admin-bookings" style="min-height: 80vh;">
   <div class="row mt-5">
     <div class="col-6">
       <h2 class="text-center mb-3">My client bookings:</h2>
       <div>
-        <% @gardens.each do |garden| %>
-          <%= render "admin/gardens/card", garden: garden %>
+        <% current_user.owned_bookings.each do |booking| %>
+          <%= render "admin/gardens/booking_card", booking: booking %>
         <% end %>
       </div>
     </div>
     <div class="col-6">
       <h2 class="text-center mb-3">My bookings:</h2>
       <div>
-        <% @gardens.each do |garden| %>
-            <%= render "admin/gardens/card", garden: garden %>
+        <% current_user.bookings.each do |booking| %>
+          <%= render "admin/gardens/booking_card", booking: booking %>
         <% end %>
       </div>
     </div>
