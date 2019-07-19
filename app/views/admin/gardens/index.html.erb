@@ -3,26 +3,47 @@
     <div class="col-6">
       <h2 class="text-center mb-3">My client bookings:</h2>
       <div>
-        <% current_user.owned_bookings.each do |booking| %>
-          <%= render "admin/gardens/booking_card", booking: booking %>
+        <% if @owned_bookings.empty? %>
+          <div class="text-center">
+            <p>You don't have bookings yet!</p>
+            <%= link_to "Add a garden!", new_garden_path, class:"btn btn-success" %>
+          </div>
+        <% else %>
+          <% @owned_bookings.each do |booking| %>
+            <%= render "admin/gardens/booking_card", booking: booking %>
+          <% end %>
         <% end %>
       </div>
     </div>
     <div class="col-6">
       <h2 class="text-center mb-3">My bookings:</h2>
       <div>
-        <% current_user.bookings.each do |booking| %>
-          <%= render "admin/gardens/booking_card", booking: booking %>
+        <% if current_user.bookings.empty? %>
+          <div class="text-center">
+            <p>You haven't book a garden yet!</p>
+            <%= link_to "Book one!", new_garden_path, class:"btn btn-success" %>
+          </div>
+        <% else %>
+          <% current_user.bookings.each do |booking| %>
+            <%= render "admin/gardens/booking_card", booking: booking %>
+          <% end %>
         <% end %>
       </div>
     </div>
   </div>
   <div class="row mt-5">
-    <div class="col-6">
+    <div class="col-6 offset-3">
       <h2 class="text-center mb-3">My Gardens:</h2>
       <div>
-        <% @gardens.each do |garden| %>
-          <%= render "admin/gardens/card", garden: garden %>
+        <% if @gardens.empty? %>
+          <div class="text-center">
+            <p>You don't have a garden yet!</p>
+            <%= link_to "Add one!", new_garden_path, class:"btn btn-success" %>
+          </div>
+        <% else %>
+          <% @gardens.each do |garden| %>
+            <%= render "admin/gardens/card", garden: garden %>
+          <% end %>
         <% end %>
       </div>
     </div>
