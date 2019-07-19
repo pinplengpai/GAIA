@@ -18,8 +18,8 @@
             <%end%></p>
     <% if policy(@booking).edit? %>
       <div class="d-flex justify-content-around align-items-center">
-        <%= link_to "Update", edit_booking_path(@booking), class: "update-button btn btn-success" %>
-        <%= link_to "Check my gardens & bookings", admin_gardens_path, class: "update-button btn btn-success" %>
+        <%= link_to "Update", edit_booking_path(@booking), class: "button space-btw-button" %>
+        <%= link_to "Check my gardens & bookings", admin_gardens_path, class: "button space-btw-button" %>
       </div>
     <% end %>
 </div>
