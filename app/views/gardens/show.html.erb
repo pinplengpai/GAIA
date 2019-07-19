@@ -1,51 +1,48 @@
-<div class="container show">
-  <div class="column-wrap">
-    <%= cl_image_tag @garden.picture, class: "show-image card-trip" %>
-    <% unless @garden.user == current_user %>
-    <div class="booking-form-wrap card-trip" id="wrap">
-      <div class="booking-form" id="unavailable-dates" data-unavailable="<%= @garden.unavailable_dates.to_json %>">
-
-
-        <%=simple_form_for [@garden, @booking] do |f| %>
-        <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"}  %>
-        <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker"}  %>
-        <%= f.submit 'Reserve', :class => "button" %>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-4 text-center">
+      <%= cl_image_tag @garden.picture, class: "show-image card-trip" %>
+      <% unless @garden.user == current_user %>
+      <div class="booking-form-wrap card-trip" id="wrap">
+        <div class="booking-form" id="unavailable-dates" data-unavailable="<%= @garden.unavailable_dates.to_json %>">
+          <%=simple_form_for [@garden, @booking] do |f| %>
+          <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"}  %>
+          <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker mb-5"}  %>
+          <%= f.submit 'Reserve', :class => "button" %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+      <div class="show-button">
+        <% if policy(@garden).edit? %>
+          <%= link_to "Edit",edit_garden_path(@garden),:class => "button edit"%>
         <% end %>
-
+        <% if policy(@garden).destroy? %>
+          <%= link_to "Delete",garden_path(@garden),:class => "button edit", method: :delete, data: { confirm: "Sure?"}%>
+        <% end %>
+      </div>
+      <%= link_to "Go to your dashboard",admin_gardens_path, class:"button edit", id:"check-button"%>
+    </div>
+    <div class='col-8'>
+      <h1><%= @garden.name %></h1>
+      <p>Location: <%= @garden.address %></p>
+      <p>Size: <%= @garden.size %></p>
+      <p>Price: $<%= @garden.price %></p>
+      <p>Capacity: <%= @garden.number_of_guests %> people</p>
+      <div class="details">
+        <h2>Details</h2>
+        <p><%= @garden.description %></p>
+      </div>
+      <div class="rules">
+        <h2>Rules</h2>
+        <p><%= @garden.garden_rules %> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit voluptatum natus et rem, excepturi beatae laudantium reiciendis perferendis doloremque, libero dolor debitis dicta alias eius. Et nisi eveniet rem sit!</p>
+      </div>
+      <div class="host-profile">
+        <h2>Neighbourhood</h2>
+        <p><%= @garden.neighbourhood %> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae architecto laudantium saepe alias, sint! Labore recusandae voluptas in consequatur suscipit culpa atque, rerum dolor molestiae, voluptatum quasi quia eos veritatisLorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae architecto laudantium saepe alias, sint! Labore recusandae voluptas in consequatur suscipit culpa atque, rerum dolor molestiae, voluptatum quasi quia eos veritatisLorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae architecto laudantium saepe alias, sint! Labore recusandae voluptas in consequatur suscipit culpa atque, rerum dolor molestiae, voluptatum quasi quia eos veritatis.</p>
       </div>
     </div>
-    <% end %>
-    <div class="show-button">
-      <% if policy(@garden).edit? %>
-     <%= link_to "Edit",edit_garden_path(@garden),:class => "button edit"%>
-     <% end %>
-     <% if policy(@garden).destroy? %>
-     <%= link_to "Delete",garden_path(@garden),:class => "button edit", method: :delete, data: { confirm: "Sure?"}%>
-     <% end %>
-     <div class="button edit" id="check-button">
-     <%= link_to "Check your garden",admin_gardens_path  %>
-     </div>
-   </div>
- </div>
- <div class=show-infomation>
-  <h1><%= @garden.name %></h1>
-  <p>Location: <%= @garden.address %></p>
-  <p>Size: <%= @garden.size %></p>
-  <p>Price: $<%= @garden.price %></p>
-  <p>Capacity: <%= @garden.number_of_guests %> people</p>
-  <div class="details">
-    <h2>Details</h2>
-    <p> <%= @garden.description %></p>
   </div>
-  <div class="rules">
-    <h2>Rules</h2>
-    <p><%= @garden.garden_rules %> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit voluptatum natus et rem, excepturi beatae laudantium reiciendis perferendis doloremque, libero dolor debitis dicta alias eius. Et nisi eveniet rem sit!</p>
-  </div>
-  <div class="host-profile">
-    <h2>Neighbourhood</h2>
-    <p><%= @garden.neighbourhood %> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae architecto laudantium saepe alias, sint! Labore recusandae voluptas in consequatur suscipit culpa atque, rerum dolor molestiae, voluptatum quasi quia eos veritatisLorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae architecto laudantium saepe alias, sint! Labore recusandae voluptas in consequatur suscipit culpa atque, rerum dolor molestiae, voluptatum quasi quia eos veritatisLorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae architecto laudantium saepe alias, sint! Labore recusandae voluptas in consequatur suscipit culpa atque, rerum dolor molestiae, voluptatum quasi quia eos veritatis.</p>
-  </div>
-</div>
 </div>
 
 
