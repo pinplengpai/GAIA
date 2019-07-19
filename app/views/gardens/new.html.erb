@@ -1,9 +1,11 @@
-<div id="container center-div">
-  <div class="row">
-    <div class="text-center my-4">
+<div id="container">
+  <div class="row mx-5 my-5 d-flex align-items-top">
+    <div class="col-sm-12 col-md-6 my-5 p-5 card-trip">
       <h2 class="text-center"><strong>To list my garden for rent</strong></h2>
-      <br>
        <%= render 'form', garden: @garden %>
     </div>
+     <div class="col-sm-12 col-md-6 my-5">
+      <%= cl_image_tag("https://res.cloudinary.com/dkhldnqjn/image/upload/v1563549702/r4bvmhvnrxjw1bhlq6pj.jpg", crop: :fill) %>
+     </div>
+   </div>
   </div>
-</div>
