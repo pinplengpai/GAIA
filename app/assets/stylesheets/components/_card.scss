@@ -8,12 +8,17 @@
 
 .card-trip {
   border-radius: 12px;
-  width: 300px;
-  height: 405px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
+}
+
+.card-trip-index {
+  width: 300px;
+  height: 405px;
+} a{
+  color:black;
 }
 
 .card-trip > img {
