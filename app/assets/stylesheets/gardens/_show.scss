@@ -1,22 +1,25 @@
 .booking-form-wrap{
- border: 6px solid #A6D3A0;
  background-color: white;
- width: 400px;
- height: 300px;
+ width: 342px;
+ height: 258px;
+ margin-top: 42px;
+ margin-bottom:42px;
+ border-radius: 10px;
 }.booking-form{
-  // margin-top: 39px;
-  width: 348px;
+  width: 288px;
   height: 244px;
+  margin-left: 19px;
+  margin-top: 17px;
 }.fix-scroll{
   position: fixed;
   top: 80px;
 }
 
 img.show-image {
-  box-shadow: 1em 0 1em grey;
-  width: 350px;
-  height: 402px;
-  border-radius: 19px;
+  width: 336px;
+  height: 419px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .container.show {
@@ -31,3 +34,46 @@ img.show-image {
 .column-wrap{
   width: 40%;
 }
+
+.button{
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 5px 17px;
+  border-radius: 51px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+} :hover {
+  opacity: 2;
+   // font-weight: bold;
+ } a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.edit {
+
+  font-size: 20px;
+  margin: 8px;
+}
+
+.show-button{
+  margin-left: 66px;
+  margin-top: 27px;
+}
+
+#check-button{
+  margin-top: 20px;
+  border: 1px solid #4A4A4A;
+  padding: 5px 17px;
+  border-radius: 51px;
+  font-weight: lighter;
+  margin-right: 170px;
+  margin-left:-3px;
+} a{
+  color: #4A4A4A;
+} a:hover {
+  text-decoration: none;
+  color: black;
+}
+

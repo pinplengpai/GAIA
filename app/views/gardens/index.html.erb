@@ -7,22 +7,6 @@
   </div>
 </div>
 
-<!-- <div class="container">
-  <div class="cards">
-    <#% @gardens.each do |garden| %>
-      <#%= link_to garden do  %>
-        <div class="card m-3">
-          <#%= cl_image_tag garden.picture %>
-          <div class="card-text">
-            <h2><#%= garden.name %></h2>
-            <p><#%= garden.address %></p>
-            <p class="price">$<#%= garden.price %>/day</p>
-          </div>
-        </div>
-      <#% end %>
-    <#% end %>
-  </div>
-</div> -->
 <div class="container">
   <div class="cards">
     <% @gardens.each do |garden| %>
@@ -31,7 +15,7 @@
       <%= cl_image_tag garden.picture %>
       <div class="card-trip-infos">
         <div>
-          <h2><%= garden.name %></h2>
+          <h2><%= "#{garden.name[0..25]}..." %></h2>
           <p><%= garden.address %></p>
         </div>
         <h2 class="card-trip-pricing">$<%= garden.price %></h2>
