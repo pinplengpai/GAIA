@@ -35,43 +35,9 @@ img.show-image {
   width: 40%;
 }
 
-.button{
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
-  padding: 5px 17px;
-  border-radius: 51px;
-  font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-} :hover {
-  opacity: 2;
-   // font-weight: bold;
- } a:hover {
-  text-decoration: none;
-  color: black;
-}
-
-.edit {
-
-  font-size: 20px;
-  margin: 8px;
-}
 
 .show-button{
-  margin-left: 66px;
-  margin-top: 27px;
+    margin-left: 5px;
+    margin-top: 26px;
+    margin-bottom: 22px;
 }
-
-#check-button{
-  margin-top: 20px;
-  border: 1px solid #4A4A4A;
-  padding: 5px 17px;
-  border-radius: 51px;
-  font-weight: lighter;
-} a{
-  color: #4A4A4A;
-} a:hover {
-  text-decoration: none;
-  color: black;
-}
-
