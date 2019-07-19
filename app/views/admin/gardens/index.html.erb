@@ -6,7 +6,7 @@
         <% if @owned_bookings.empty? %>
           <div class="text-center">
             <p>You don't have bookings yet!</p>
-            <%= link_to "Add a garden!", new_garden_path, class:"btn btn-success" %>
+            <%= link_to "Add a garden!", new_garden_path, class:"button space-btw-button" %>
           </div>
         <% else %>
           <% @owned_bookings.each do |booking| %>
@@ -21,7 +21,7 @@
         <% if current_user.bookings.empty? %>
           <div class="text-center">
             <p>You haven't book a garden yet!</p>
-            <%= link_to "Book one!", new_garden_path, class:"btn btn-success" %>
+            <%= link_to "Book one!", new_garden_path, class:"button space-btw-button" %>
           </div>
         <% else %>
           <% current_user.bookings.each do |booking| %>
@@ -38,7 +38,7 @@
         <% if @gardens.empty? %>
           <div class="text-center">
             <p>You don't have a garden yet!</p>
-            <%= link_to "Add one!", new_garden_path, class:"btn btn-success" %>
+            <%= link_to "Add one!", new_garden_path, class:"button space-btw-button" %>
           </div>
         <% else %>
           <% @gardens.each do |garden| %>

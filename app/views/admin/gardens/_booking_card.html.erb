@@ -8,11 +8,7 @@
 
 
     <div class="notification-actions d-flex">
-      <%= link_to edit_booking_path(booking[:id]), class:"btn btn-success" do %>
-        <i class="fas fa-pencil-alt"></i> Edit
-      <% end %>
-      <%= link_to booking_path(booking), class:"btn btn-success" do %>
-        <i class="fas fa-bookmark"></i> Booking
-      <% end %>
+      <%= link_to 'Edit', edit_booking_path(booking[:id]), class:"button space-btw-button"%>
+      <%= link_to 'Delete', booking_path(booking), class:"button space-btw-button" %>
     </div>
   </div>

@@ -7,11 +7,7 @@
     </div>
 
     <div class="notification-actions d-flex">
-      <%= link_to edit_garden_path(garden[:id]), class:"btn btn-success" do %>
-        <i class="fas fa-pencil-alt"></i> Edit
-      <% end %>
-      <%= link_to garden_path(garden), method: :delete, data: { confirm: "Sure?" }, class:"btn btn-danger" do %>
-        <i class="far fa-trash-alt"></i> Delete
-      <% end %>
+      <%= link_to 'Edit', edit_garden_path(garden[:id]), class:"button space-btw-button"%>
+      <%= link_to 'Delete', garden_path(garden), method: :delete, data: { confirm: "Sure?" }, class:"button space-btw-button"%>
     </div>
   </div>
