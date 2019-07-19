@@ -1,6 +1,15 @@
-.booking-form{
-  border: 6px solid #A6D3A0;
-  background-color: white;
+.booking-form-wrap{
+ border: 6px solid #A6D3A0;
+ background-color: white;
+ width: 400px;
+ height: 300px;
+}.booking-form{
+  // margin-top: 39px;
+  width: 348px;
+  height: 244px;
+}.fix-scroll{
+  position: fixed;
+  top: 80px;
 }
 
 img.show-image {
@@ -10,4 +19,15 @@ img.show-image {
   border-radius: 19px;
 }
 
+.container.show {
+  display: flex;
+}
 
+.show-infomation {
+  margin-left: 1px;
+  width: 60%;
+}
+
+.column-wrap{
+  width: 40%;
+}

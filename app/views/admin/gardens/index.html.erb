@@ -1,21 +1,29 @@
-<div class="notification-wrapper">
-<p>My Gardens:</p>
-<% @gardens.each do |garden| %>
-  <div class="notification">
-    <div class="notification-content">
-      <p><small><%= garden.created_at %></small></p>
-      <%= link_to garden.name, garden_path(garden)%>
-        <% puts 'booked from:';  garden.bookings.each do |booking| %>
-           booked from:  <%= booking.start_date.strftime("%A, %b %d") %>
-           to <%= booking.end_date.strftime("%A, %b %d") %>
+<div class="container-fluid admin-bookings" style="height: 80vh;">
+  <div class="row mt-5">
+    <div class="col-6">
+      <h2 class="text-center mb-3">My client bookings:</h2>
+      <div>
+        <% @gardens.each do |garden| %>
+          <%= render "admin/gardens/card", garden: garden %>
         <% end %>
+      </div>
     </div>
-    <div class="notification-actions">
-      <i class="fas fa-pencil-alt"><%= link_to "Edit", edit_garden_path(garden[:id]) %></i>
-      <i class="far fa-trash-alt"><%= link_to "Delete", garden_path(garden),
-         method: :delete, data: { confirm: "Sure?" } %></i>
+    <div class="col-6">
+      <h2 class="text-center mb-3">My bookings:</h2>
+      <div>
+        <% @gardens.each do |garden| %>
+            <%= render "admin/gardens/card", garden: garden %>
+        <% end %>
+      </div>
     </div>
   </div>
-<% end %>
-<p>Gardens I booked:</p>
+  <div class="row mt-5">
+    <div class="col-6">
+      <h2 class="text-center mb-3">My Gardens:</h2>
+      <div>
+        <% @gardens.each do |garden| %>
+          <%= render "admin/gardens/card", garden: garden %>
+        <% end %>
+      </div>
+    </div>
 </div>
