@@ -5,4 +5,7 @@
       <p><small>Garden added on the <%= booking.garden.created_at.strftime("%b %d") %></small></p>
       <p><strong><%= booking.garden.amount_of_bookings %></strong> bookings | <strong><%= booking.garden.amount_of_days %></strong> total days</p>
     </div>
+    <%= link_to edit_booking_path(booking[:id]), class:"btn btn-success" do %>
+      <i class="fas fa-pencil-alt"></i> Edit
+    <% end %>
   </div>
