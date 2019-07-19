@@ -1,13 +1,19 @@
 import flatpickr from "flatpickr"
 import "flatpickr/dist/flatpickr.min.css" // Note this is important!
 
-const data = document.getElementById('unavailable-dates').dataset.unavailable
-const unvailableDates = JSON.parse(data)
-flatpickr(".datepicker", {
-  altInput: true,
-  dateFormat: "Y-m-d",
-  disable: unvailableDates
-})
+const element = document.getElementById('unavailable-dates')
+
+
+if (element) {
+  const data = element.dataset.unavailable
+  const unvailableDates = JSON.parse(data)
+  flatpickr(".datepicker", {
+    altInput: true,
+    dateFormat: "Y-m-d",
+    disable: unvailableDates
+  })
+}
+
 
 // const toggleDateInputs = function() {
 //   const startDateInput = document.getElementById('booking_start_date');
