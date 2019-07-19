@@ -17,6 +17,9 @@
                Your booking is <strong><%=@booking.status%></strong>
             <%end%></p>
     <% if policy(@booking).edit? %>
-      <%= link_to "Update", edit_booking_path(@booking), class: "update-button btn btn-success btn-lg" %>
+      <div class="d-flex justify-content-around align-items-center">
+        <%= link_to "Update", edit_booking_path(@booking), class: "update-button btn btn-success" %>
+        <%= link_to "Check my gardens & bookings", admin_gardens_path, class: "update-button btn btn-success" %>
+      </div>
     <% end %>
 </div>
